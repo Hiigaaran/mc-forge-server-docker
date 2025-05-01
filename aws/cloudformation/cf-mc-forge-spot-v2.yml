@@ -207,7 +207,7 @@ Resources:
       TargetType: instance
       HealthCheckProtocol: TCP
       #HealthCheckPort: !Ref ContainerPort
-      HealthCheckPort: "traffic-port"v
+      HealthCheckPort: "traffic-port"
 
   Listener:
     Type: AWS::ElasticLoadBalancingV2::Listener
