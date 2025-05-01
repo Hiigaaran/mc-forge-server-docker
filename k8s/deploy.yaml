@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: minecraft-test-deploy
+  name: minecraft-test-deploy
+  namespace: test-minecraft
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: minecraft-test-deploy
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: minecraft-test-deploy
+    spec:
+      containers:
+      - image: manufactorum/mc-forge-server:v1alpha
+        name: mc-forge-server
+        ports:
+        - containerPort: 25565
+        resources:
+          requests:
+            cpu: 1
+            memory: 2Gi
+          limits:
+            cpu: 2
+            memory: 4Gi
+status: {}
