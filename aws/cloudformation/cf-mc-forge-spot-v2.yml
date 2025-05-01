@@ -109,7 +109,7 @@ Resources:
     Properties:
       LaunchTemplateData:
         InstanceType: t3.medium
-        ImageId: ami-0fb653ca2d3203ac1 # ECS-optimized Amazon Linux 2 (update if needed)
+        ImageId: ami-0d23fdf87d8773c55 # ECS-optimized Amazon Linux 2 (update if needed)
         IamInstanceProfile:
           Name: !Ref InstanceProfile
         SecurityGroupIds:
@@ -206,7 +206,8 @@ Resources:
       Protocol: TCP
       TargetType: instance
       HealthCheckProtocol: TCP
-      HealthCheckPort: !Ref ContainerPort
+      #HealthCheckPort: !Ref ContainerPort
+      HealthCheckPort: "traffic-port"v
 
   Listener:
     Type: AWS::ElasticLoadBalancingV2::Listener
